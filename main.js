@@ -31,7 +31,7 @@ let init = async () => {
   client = await AgoraRTM.createInstance(APP_ID);
   await client.login({ uid, token });
 
-  channel = client.createChannel(roomId);
+  channel = client.createChannel(`roomId`);
    await channel.join();
 
   channel.on('MemberJoined', handleUserJoined);

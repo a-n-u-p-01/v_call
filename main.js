@@ -41,7 +41,7 @@ let init = async () => {
 
   localStream = await navigator.mediaDevices.getUserMedia({
     video: true,
-    audio: true, 
+    audio: false, 
   });
   document.getElementById("user-1").srcObject = localStream;
 };

@@ -22,14 +22,14 @@ body{
    
 }
 
-#circle :nth-child(1){
+.btn-1{
     width: 7rem;
     height: 14rem;
     background: rgb(99, 64, 99);
     border-top-left-radius: 7rem;
     border-bottom-left-radius: 7rem;
 }
-#circle :nth-child(3){
+.btn-2{
     background: rgb(99, 64, 99);
     border-top-right-radius:7rem;
     width: 7rem;
@@ -41,10 +41,31 @@ body{
     background: rgb(77, 20, 20);
     display: none;
     height: 14rem;
-    width: 20rem;
+    width: 18rem;
+    background: rgb(136, 83, 136);
+   
 }
 
-.control-transition {
-    transition: opacity 0.3s ease-in-out;
-  }
-  
+  #in{
+    background: violet ;
+    height: 13rem;
+    width: 18rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+#in div{
+    
+    display: flex;
+  justify-content: center;
+  align-items: center;
+    background: rgb(82, 28, 82);
+    color: white;
+    width: 10rem;
+    height: 5rem;
+
+}
+

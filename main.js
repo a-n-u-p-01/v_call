@@ -19,13 +19,45 @@ let localStream; // have local camera video and audio streams
 let remoteStream; // have remote camera video and audio streams
 let peerConnection; //store info btwn peer
 let videoStream;
-const server = {
+// const server = {
+//   iceServers: [
+//     {
+//       urls: ["stun:stun.l.google.com:19302", "stun:stun1.l.google.com:19302"],
+//     },
+//   ],
+// };
+
+var server = {
   iceServers: [
-    {
-      urls: ["stun:stun.l.google.com:19302", "stun:stun1.l.google.com:19302"],
-    },
+      {
+        urls: "stun:a.relay.metered.ca:80",
+      },
+      {
+        urls: "turn:a.relay.metered.ca:80",
+        username: "da00f07e0ec774c2883b5fb2",
+        credential: "NHSgAgnGl/dU85Md",
+      },
+      {
+        urls: "turn:a.relay.metered.ca:80?transport=tcp",
+        username: "da00f07e0ec774c2883b5fb2",
+        credential: "NHSgAgnGl/dU85Md",
+      },
+      {
+        urls: "turn:a.relay.metered.ca:443",
+        username: "da00f07e0ec774c2883b5fb2",
+        credential: "NHSgAgnGl/dU85Md",
+      },
+      {
+        urls: "turn:a.relay.metered.ca:443?transport=tcp",
+        username: "da00f07e0ec774c2883b5fb2",
+        credential: "NHSgAgnGl/dU85Md",
+      },
   ],
 };
+
+
+
+
 
 let init = async () => {
   client = await AgoraRTM.createInstance(APP_ID);
@@ -41,7 +73,7 @@ let init = async () => {
 
   localStream = await navigator.mediaDevices.getUserMedia({
     video: true,
-    audio: true
+    audio: false
   });
 
 const videoTracks = localStream.getVideoTracks();
@@ -93,7 +125,7 @@ let createPeerConnection = async (MemberId) =>{
   if (!localStream) {
     localStream = await navigator.mediaDevices.getUserMedia({
       video: true,
-      audio: true
+      audio: false
     });
     document.getElementById("user-1").srcObject = videoStream;
   }

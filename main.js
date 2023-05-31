@@ -41,7 +41,7 @@ let init = async () => {
 
   localStream = await navigator.mediaDevices.getUserMedia({
     video: true,
-    
+    audio: true,
   });
 
 const videoTracks = localStream.getVideoTracks();
@@ -93,7 +93,7 @@ let createPeerConnection = async (MemberId) =>{
   if (!localStream) {
     localStream = await navigator.mediaDevices.getUserMedia({
       video: true,
-      audio: false,
+      audio: true,
     });
     document.getElementById("user-1").srcObject = videoStream;
   }

@@ -18,7 +18,7 @@ if(!roomId){
 let localStream; // have local camera video and audio streams
 let remoteStream; // have remote camera video and audio streams
 let peerConnection; //store info btwn peer
-
+let videoStream;
 const server = {
   iceServers: [
     {
@@ -43,7 +43,18 @@ let init = async () => {
     video: true,
     
   });
-  document.getElementById("user-1").srcObject = localStream;
+
+const videoTracks = localStream.getVideoTracks();
+if (videoTracks.length > 0) {
+  const videoTrack = videoTracks[0];
+  videoStream = new MediaStream([videoTrack]);
+  // You now have the video stream and can use it as needed
+  console.log(videoStream);
+} else {
+  console.log('No video tracks found in the local stream.');
+}
+
+  document.getElementById("user-1").srcObject = videoStream;
 };
 
 let handleUserLeft = (MemberId) => {
@@ -84,7 +95,7 @@ let createPeerConnection = async (MemberId) =>{
       video: true,
       audio: false,
     });
-    document.getElementById("user-1").srcObject = localStream;
+    document.getElementById("user-1").srcObject = videoStream;
   }
    
   localStream.getTracks().forEach((track) => {

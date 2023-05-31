@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: rgb(136, 83, 136);
+}
+#create-form{
+    display: none;
+}
+#join-form{
+    display: none;
+}
+
+#circle{
+    width: 100%;
+    height: 100vh;
+    background: rgb(136, 83, 136);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+#circle :nth-child(1){
+    width: 7rem;
+    height: 14rem;
+    background: rgb(99, 64, 99);
+    border-top-left-radius: 7rem;
+    border-bottom-left-radius: 7rem;
+}
+#circle :nth-child(3){
+    background: rgb(99, 64, 99);
+    border-top-right-radius:7rem;
+    width: 7rem;
+    height: 14rem;
+    border-bottom-right-radius: 7rem;
+}
+
+#control{
+    background: rgb(77, 20, 20);
+    display: none;
+    height: 14rem;
+    width: 20rem;
+}
+
+.control-transition {
+    transition: opacity 0.3s ease-in-out;
+  }
+  

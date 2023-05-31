@@ -10,6 +10,10 @@ let querryString = window.location.search
 let urlParams = new URLSearchParams(querryString)
 let roomId = urlParams.get('room')
 
+document.getElementById("roomId").innerText ='Room Id: ' + roomId;
+
+
+
 if(!roomId){
   window.location = 'lobby.html'
 }

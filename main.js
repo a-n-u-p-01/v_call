@@ -10,7 +10,7 @@ let querryString = window.location.search
 let urlParams = new URLSearchParams(querryString)
 let roomId = urlParams.get('room')
 
-document.getElementById("roomId").innerText ='Room Id: ' + roomId;
+document.getElementById("room_Id").innerText ='Room Id: ' + roomId;
 
 
 
@@ -67,7 +67,7 @@ let init = async () => {
   client = await AgoraRTM.createInstance(APP_ID);
   await client.login({ uid, token });
 
-  channel = client.createChannel(`roomId`);
+  channel = client.createChannel(roomId);
    await channel.join();
 
   channel.on('MemberJoined', handleUserJoined);

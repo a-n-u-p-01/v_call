@@ -9,7 +9,7 @@ let channel;
 let querryString = window.location.search
 let urlParams = new URLSearchParams(querryString)
 let roomId = urlParams.get('room')
-
+let participantCount=1;
 document.getElementById("room_Id").innerText ='Room Id: ' + roomId;
 
 
@@ -68,8 +68,8 @@ let init = async () => {
   await client.login({ uid, token });
 
   channel = client.createChannel(roomId);
-   await channel.join();
-
+  await channel.join();
+  console.log('Number of participant',participantCount);
   channel.on('MemberJoined', handleUserJoined);
   channel.on('MemberLeft', handleUserLeft);
   
@@ -94,7 +94,13 @@ if (videoTracks.length > 0) {
 };
 
 let handleUserLeft = (MemberId) => {
-  document.getElementById('user-2').style.display = "none";
+  if(participantCount == 1){
+    document.getElementById('user-2').style.display = "none";
+  }
+  participantCount--;
+  console.log('Member count just left');
+  console.log('Number of participant',participantCount);
+  
 }
 
 let handleMessageFromPeer = async (message, MemberId) => {
@@ -112,13 +118,41 @@ let handleMessageFromPeer = async (message, MemberId) => {
     peerConnection.addIceCandidate(message.candidate);
    }
   }
+  // Check if the message is the participant count
+  if (!isNaN(parseInt(message))) {
+    participantCount = parseInt(message);
+    console.log('Received participant count:', participantCount);
+  }
 }
 
-let handleUserJoined = async (MemberId) => { 
+// let handleUserJoined = async (MemberId) => { 
   
-  user.textContent="user-2 has joined";
-  console.log("A New Member has joined", MemberId);
+//   user.textContent="user-2 has joined";
+//   console.log("A New Member has joined", MemberId);
+//   createOffer(MemberId);
+// };
+let handleUserJoined = async (MemberId) => {
+  participantCount++;
+  sendParticipantCount(MemberId);
+  if (participantCount >2) {
+    console.log('Number of participant',participantCount);
+    console.log('Room is full. Cannot accept new participants.');
+    return;
+  }
+
+  console.log('Number of participant',participantCount);
+  console.log("A new member has joined", MemberId);
   createOffer(MemberId);
+  
+};
+
+let sendParticipantCount = async (MemberId) => {
+  try {
+    await client.sendMessageToPeer({ text: participantCount.toString() }, MemberId);
+    console.log('Participant count sent successfully');
+  } catch (error) {
+    console.log('Failed to send participant count:', error);
+  }
 };
 
 let createPeerConnection = async (MemberId) =>{

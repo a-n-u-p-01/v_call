@@ -6,6 +6,10 @@ body{
     
     background: rgb(136, 83, 136);
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 #createForm{
     display: none;
@@ -16,6 +20,8 @@ body{
     align-items: center;
     border-radius: 1rem;
     box-shadow: 0px 0px 14px -3px rgba(0,0,0,1) ;
+    position: absolute;
+    top: 6rem;
 }
 
 #create-form{
@@ -49,14 +55,16 @@ body{
     cursor: pointer;
 }
 #joinForm{
-    display: none;
-    background: rgb(116, 52, 116);
-    width: 25rem;
-    height: 10rem;
-    justify-content: center;
-    align-items: center;
-    border-radius: 1rem;
-    box-shadow: 0px 0px 14px -3px rgba(0,0,0,1) ;
+  display: none;
+  background: rgb(116, 52, 116);
+  width: 25rem;
+  height: 10rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 14px -3px rgba(0,0,0,1) ;
+  position: absolute;
+  top: 6rem;
 }
 
 #join-form{
@@ -220,9 +228,9 @@ height: 2rem;
   justify-content: center;
   height: 4rem;
   width: 4rem;
-  position: fixed;
-  top: 24vh;
-  left: 46%;
+  position: absolute;
+  top: 25vh;
+  left: 47.60%;
 }
 /* :::::::::::::: Required CSS */
 /* Locked */
@@ -301,3 +309,48 @@ height: 2rem;
   bottom: 124%;
   transform: rotate(-30deg);
 }
+
+
+/* --------------------mobile screen------------ */
+
+
+@media screen and (max-width:600px) {
+  
+  #createForm{
+    display: none;
+    background: rgb(116, 52, 116);
+    width: 25rem;
+    height: 10rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 14px -3px rgba(0,0,0,1) ;
+    position: absolute;
+    top: 6rem;
+}
+  
+.container{
+  top: 26vh;
+  left: 41.60%;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

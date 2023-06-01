@@ -69,3 +69,70 @@ body{
 
 }
 
+#enter{
+   
+    background: rgb(93, 18, 93);
+    width: 9rem;
+    height: 9rem;
+    position: absolute;
+    top: 39vh;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#verification{
+    width: 8rem;
+    height: 5rem;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#verification input{
+ width: 85%;
+ height: 30%;
+ 
+}
+
+#verification input[type="text"]{
+    background: transparent;
+    outline: none;
+    border: none;
+    text-align: center;
+    box-shadow: 0px 0px 14px -3px rgba(0,0,0,1) inset;
+    margin-bottom: 1rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+#verification input[type="submit"]{
+background: transparent;
+border: none;
+box-shadow: 0px 0px 14px -3px rgba(0,0,0,1);
+cursor: pointer;
+width: 6rem;
+height: 2rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

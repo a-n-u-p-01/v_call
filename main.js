@@ -94,10 +94,11 @@ if (videoTracks.length > 0) {
 };
 
 let handleUserLeft = (MemberId) => {
-  if(participantCount == 1){
+  participantCount--;
+  if(participantCount === 1){
     document.getElementById('user-2').style.display = "none";
   }
-  participantCount--;
+  
   console.log('Member count just left');
   console.log('Number of participant',participantCount);
   

@@ -122,6 +122,13 @@ let handleMessageFromPeer = async (message, MemberId) => {
   if (!isNaN(parseInt(message))) {
     participantCount = parseInt(message);
     console.log('Received participant count:', participantCount);
+    if(participantCount==3)
+    {
+      console.log('Number of participant',participantCount);
+      console.log('Room is full. Cannot accept new participants.');
+      alert("This room is full you can Create and Join Another room");
+      window.location = 'lobby.html'
+    }
   }
 }
 
@@ -134,12 +141,6 @@ let handleMessageFromPeer = async (message, MemberId) => {
 let handleUserJoined = async (MemberId) => {
   participantCount++;
   sendParticipantCount(MemberId);
-  if (participantCount >2) {
-    console.log('Number of participant',participantCount);
-    console.log('Room is full. Cannot accept new participants.');
-    return;
-  }
-
   console.log('Number of participant',participantCount);
   console.log("A new member has joined", MemberId);
   createOffer(MemberId);

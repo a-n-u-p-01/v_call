@@ -21,6 +21,7 @@
 // });
 
 // ---------------------js for verification------------
+
 let input;
 let verify = document.getElementById("verification");
 const password = String.fromCharCode(49, 50, 51);
@@ -30,11 +31,12 @@ verify.addEventListener("submit", async (e) => {
   
   if (input === password) {
   console.log(password);
-
+  unlock();
  document.getElementById("enter").style.display= 'none';
  document.getElementById("control").style.display= 'flex';
  document.getElementById("control").style.justifyContent = 'center';
  document.getElementById("control").style.alignItems = 'center';
+ 
 
   }
   else{
@@ -56,16 +58,20 @@ JoinRoom.addEventListener('click', async () =>{
   document.getElementById("joinForm").style.display = 'flex';
 
 })
+// let unlock = ()=>{
+//   document.querySelectorAll(".lock").forEach(function(element) {
+//   element.addEventListener("submit", function() {
+//     this.classList.toggle("unlocked");
+//   });
+// });
+// };
 
 
+let unlock =()=> {
 
-
-
-
-
-
-
-
-
-
+document.querySelectorAll('.lock').forEach((lock) => {
+  // Toggle the class name 'unlocked' on each lock
+  lock.classList.toggle('unlocked');
+});
+}
 

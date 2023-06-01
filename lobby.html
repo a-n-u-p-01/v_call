@@ -8,48 +8,52 @@
     <link rel="stylesheet" href="lobby.css" />
   </head>
   <body>
+   
 
-<div id="createForm">
-    <form id="create-form" action="index.html">
-      <input
-        type="text"
-        id="name"
-        name="name"
-        placeholder="Enter your Name"
-        required
-      />
-      <input type="submit" value="Create Room" />
-    </form>
-  </div>
-
-  <div id="joinForm">
-    <form id="join-form">
-      <input
-        type="text"
-        placeholder="Enter room_Id"
-        name="invite_link"
-        required
-      />
-      <input type="submit" value="Join Room" />
-    </form>
-  </div>
-
-    <div id="circle">
-      <span id="enter">
-        <form action="" id="verification">
-          <input type="text" placeholder="Enter Password" name="password"  required/>
-          <input type="submit" value="Verify" />
-        </form>
-      </span>
-      <div class="btn btn-1"></div>
-      <div class="btn" id="control">
-        <div id="in">
-          <div>CreateRoom</div>
-          <div>JoinRoom</div>
-        </div>
-      </div>
-      <div class="btn btn-2"></div>
+    <div id="createForm">
+      <form id="create-form" action="index.html">
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Enter your Name"
+          required
+        />
+        <input type="submit" value="Create Room" />
+      </form>
     </div>
+  
+    <div id="joinForm">
+      <form id="join-form">
+        <input
+          type="text"
+          placeholder="Enter room_Id"
+          name="invite_link"
+          required
+        />
+        <input type="submit" value="Join Room" />
+      </form>
+    </div>
+  
+      <div id="circle">
+        <div class="container">
+          <span class="lock"></span>
+        </div>
+        <span id="enter">
+          <form action="" id="verification">
+            <input type="text" placeholder="Enter Password" name="password"  required/>
+            <input type="submit" value="Verify" />
+          </form>
+        </span>
+        <div class="btn btn-1"></div>
+        <div class="btn" id="control">
+          <div id="in">
+            <div>CreateRoom</div>
+            <div>JoinRoom</div>
+          </div>
+        </div>
+        <div class="btn btn-2"></div>
+      </div>
 
     <script src="lobby.js"></script>
   </body>

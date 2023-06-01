@@ -50,7 +50,7 @@ let JoinRoom = document.querySelector("#in > div:last-child");
 JoinRoom.addEventListener('click', async () =>{
   console.log("Join room");
   document.getElementById("circle").style.display = 'none';
-  document.getElementById("joinForm").style.display = 'block';
+  document.getElementById("joinForm").style.display = 'flex';
 
 })
 

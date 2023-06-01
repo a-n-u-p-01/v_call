@@ -1,21 +1,36 @@
-#videos{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2px;
-     
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  height: 100vh;
+  background: yellow;
 }
 
-.video-player{
-    background-color: black;
-    width: 100%;
-    height: 50vh;
+#videos {
+  background: blue;
+  position: relative;
+  width: 100px;
+  height: 100px;
 }
-#user-2{
-    display: none;
-    
+#user-1 {
+  position: fixed;
+  width: 30rem;
+  height: 50rem;
+  background: transparent;
+  top: 3rem;
+  left: 10rem;
 }
-#roomId{
-    align-content: center;
+#user-2 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  background: red;
 }
 
-
+#roomId {
+  align-content: center;
+}

@@ -125,7 +125,7 @@ let createPeerConnection = async (MemberId) =>{
   peerConnection = new RTCPeerConnection(server);
   remoteStream = new MediaStream();
   document.getElementById('user-2').srcObject = remoteStream;
-  document.getElementById('user-2').style.display='block';
+  document.getElementById('user-2').style.display='inline';
   if (!localStream) {
     localStream = await navigator.mediaDevices.getUserMedia({
       video: true,

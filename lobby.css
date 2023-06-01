@@ -109,15 +109,15 @@ body{
     width: 7rem;
     height: 14rem;
     background: rgb(99, 64, 99);
-    border-top-left-radius: 7rem;
-    border-bottom-left-radius: 7rem;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
 }
 .btn-2{
     background: rgb(99, 64, 99);
-    border-top-right-radius:7rem;
+    border-top-right-radius:1rem;
     width: 7rem;
     height: 14rem;
-    border-bottom-right-radius: 7rem;
+    border-bottom-right-radius: 1rem;
 }
 
 #control{
@@ -159,7 +159,7 @@ body{
     height: 9rem;
     position: absolute;
     top: 39vh;
-    border-radius: 50%;
+    border-radius: 20%;
     display: flex;
     justify-content: center;
     align-items: center;

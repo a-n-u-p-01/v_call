@@ -28,14 +28,17 @@ verify.addEventListener("submit", async (e) => {
   e.preventDefault();
   input = String(e.target.password.value);
   
-  if (/*input === password*/ true) {
-    console.log(password);
+  if (input === password) {
+  console.log(password);
 
  document.getElementById("enter").style.display= 'none';
  document.getElementById("control").style.display= 'flex';
  document.getElementById("control").style.justifyContent = 'center';
  document.getElementById("control").style.alignItems = 'center';
 
+  }
+  else{
+    alert('Enter Correct Password')
   }
 });
   // ---------------------------js for join and create room-----------------

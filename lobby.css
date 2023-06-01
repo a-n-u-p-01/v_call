@@ -11,12 +11,12 @@ body{
 }
 #createForm{
     display: none;
-    background: rgb(21, 190, 167);
+    background: rgb(116, 52, 116);
     width: 25rem;
     height: 10rem;
     justify-content: center;
     align-items: center;
-    border-radius: 5rem;
+    border-radius: 1rem;
     box-shadow: 0px 0px 14px -3px rgba(0,0,0,1) ;
 }
 
@@ -33,7 +33,7 @@ body{
     box-shadow: 0px 0px 14px -3px rgba(0,0,0,1) inset;
     border: none;
     text-align: center;
-    border-radius: 5rem;
+    border-radius: 4px;
     height: 20px;
     width: 12rem;
     margin-bottom: 1rem;
@@ -52,14 +52,13 @@ body{
 }
 #joinForm{
     display: none;
-    background: rgb(21, 190, 167);
+    background: rgb(116, 52, 116);
     width: 25rem;
     height: 10rem;
     justify-content: center;
     align-items: center;
-    border-radius: 5rem;
+    border-radius: 1rem;
     box-shadow: 0px 0px 14px -3px rgba(0,0,0,1) ;
-    
 }
 
 #join-form{
@@ -75,7 +74,7 @@ body{
     box-shadow: 0px 0px 14px -3px rgba(0,0,0,1) inset;
     border: none;
     text-align: center;
-    border-radius: 5rem;
+    border-radius: 4px;
     height: 20px;
     width: 12rem;
     margin-bottom: 1rem;
@@ -132,6 +131,7 @@ body{
 }
 
   #in{
+    box-shadow: 0px 0px 14px -3px rgba(0,0,0,1);
     background: violet ;
     height: 13rem;
     width: 18rem;
@@ -143,10 +143,12 @@ body{
 }
 
 #in div{
-    
+    cursor: pointer;
+   border-radius: 1rem;
+    box-shadow: 0px 0px 14px -3px rgba(0,0,0,1) inset ;
     display: flex;
-  justify-content: center;
-  align-items: center;
+   justify-content: center;
+   align-items: center;
     background: rgb(82, 28, 82);
     color: white;
     width: 10rem;

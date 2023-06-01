@@ -28,7 +28,7 @@ verify.addEventListener("submit", async (e) => {
   e.preventDefault();
   input = String(e.target.password.value);
   
-  if (input === password) {
+  if (/*input === password*/ true) {
     console.log(password);
 
  document.getElementById("enter").style.display= 'none';
@@ -44,13 +44,13 @@ let CreateRoom = document.querySelector("#in > div:first-child");
 CreateRoom.addEventListener('click', async () =>{
   console.log("create room");
   document.getElementById("circle").style.display = 'none';
-  document.getElementById("create-form").style.display = 'block';
+  document.getElementById("createForm").style.display = 'flex';
 })
 let JoinRoom = document.querySelector("#in > div:last-child");
 JoinRoom.addEventListener('click', async () =>{
   console.log("Join room");
   document.getElementById("circle").style.display = 'none';
-  document.getElementById("join-form").style.display = 'block';
+  document.getElementById("joinForm").style.display = 'block';
 
 })
 

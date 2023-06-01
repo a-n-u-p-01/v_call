@@ -7,12 +7,53 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
 }
+#createForm{
+    display: none;
+    background: rgb(21, 190, 167);
+    width: 25rem;
+    height: 10rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5rem;
+    
+}
+
 #create-form{
-    display: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
-#join-form{
+
+#create-form input[type="text"]{
+    background: transparent;
+    box-shadow: 0px 0px 14px -3px rgba(0,0,0,1) inset;
+    border: none;
+    text-align: center;
+    border-radius: 5rem;
+    height: 20px;
+    width: 12rem;
+    margin-bottom: 1rem;
+    
+}
+#create-form input[type="submit"] {
+    background: transparent;
+    box-shadow: 0px 0px 14px -3px rgba(0,0,0,1) ;
+    border: none;
+    text-align: center;
+    border-radius: 5rem;
+    height: 30px;
+    width: 6rem;
+    margin-bottom: -2rem;
+    cursor: pointer;
+}
+
+#joinForm{
     display: none;
+    background: white;
 }
 
 #circle{
@@ -41,7 +82,7 @@ body{
 }
 
 #control{
-    background: rgb(77, 20, 20);
+   
     display: none;
     height: 14rem;
     width: 18rem;
@@ -123,11 +164,9 @@ height: 2rem;
 }
 
 /* ---------------ctreate form-------------- */
-#create-form{
-    position: absolute;
-    top: 50vh;
-    left: 50vh;
-}
+/* #create-form{
+  
+} */
 
 
 

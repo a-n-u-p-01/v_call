@@ -10,6 +10,9 @@ let querryString = window.location.search
 let urlParams = new URLSearchParams(querryString)
 let roomId = urlParams.get('room')
 let participantCount=1;
+
+
+
 document.getElementById("room_Id").innerText ='Room Id: ' + roomId;
 
 
@@ -122,7 +125,7 @@ let handleMessageFromPeer = async (message, MemberId) => {
   if (!isNaN(parseInt(message))) {
     participantCount = parseInt(message);
     console.log('Received participant count:', participantCount);
-    if(participantCount==3)
+    if(participantCount>=3)
     {
       console.log('Number of participant',participantCount);
       console.log('Room is full. Cannot accept new participants.');

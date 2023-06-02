@@ -77,7 +77,7 @@ let init = async () => {
 
   localStream = await navigator.mediaDevices.getUserMedia({
     video: true,
-    audio: false
+    audio: true
   });
 
 const videoTracks = localStream.getVideoTracks();
@@ -171,7 +171,7 @@ let createPeerConnection = async (MemberId) =>{
   if (!localStream) {
     localStream = await navigator.mediaDevices.getUserMedia({
       video: true,
-      audio: false
+      audio: true
     });
     document.getElementById("user-1").srcObject = videoStream;
   }
@@ -226,13 +226,15 @@ let leaveChannel = async () => {
 
 let toggleCamera = async () => {
   let videoTrack = localStream.getTracks().find((track) => track.kind === "video");
-
+   console.log(videoTrack)
   if (videoTrack.enabled) {
     videoTrack.enabled = false;
+    document.getElementById('user-1').srcObject = null
     document.getElementById("camera-btn").style.backgroundColor =
       "rgb(255, 80, 80)";
   } else {
     videoTrack.enabled = true;
+    document.getElementById('user-1').srcObject = videoStream
     document.getElementById("camera-btn").style.backgroundColor = "rgb(179, 102, 249, .9)";
   }
 };

@@ -97,9 +97,9 @@ let handleUserLeft = (MemberId) => {
   participantCount--;
   if(participantCount === 1){
     document.getElementById('user-2').style.display = "none";
+    document.getElementById("user-1").classList.remove("smallFrame");
   }
-  document.getElementById("user-1").classList.remove("smallFrame");
-  console.log('Member count just left');
+  console.log('Member just left');
   console.log('Number of participant',participantCount);
   
 }
@@ -167,7 +167,7 @@ let createPeerConnection = async (MemberId) =>{
   remoteStream = new MediaStream();
   document.getElementById('user-2').srcObject = remoteStream;
   document.getElementById('user-2').style.display='inline';
-  document.getElementById("user-1").classList.add("smallFrame");
+  document.getElementById('user-1').classList.add("smallFrame");
   if (!localStream) {
     localStream = await navigator.mediaDevices.getUserMedia({
       video: true,

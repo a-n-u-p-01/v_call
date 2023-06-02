@@ -77,7 +77,7 @@ let init = async () => {
 
   localStream = await navigator.mediaDevices.getUserMedia({
     video: true,
-    audio: true
+    audio: false
   });
 
 const videoTracks = localStream.getVideoTracks();
@@ -89,15 +89,15 @@ if (videoTracks.length > 0) {
 } else {
   console.log('No video tracks found in the local stream.');
 }
+document.getElementById('user-1').srcObject = videoStream
 
-  document.getElementById("user-1").srcObject = videoStream;
 };
 
-let handleUserLeft = (MemberId) => {
+let handleUserLeft = async (MemberId) => {
   participantCount--;
   if(participantCount === 1){
     document.getElementById('user-2').style.display = "none";
-    document.getElementById("user-1").classList.remove("smallFrame");
+    document.getElementById('user-1').classList.remove("smallFrame");
   }
   console.log('Member just left');
   console.log('Number of participant',participantCount);
@@ -171,7 +171,7 @@ let createPeerConnection = async (MemberId) =>{
   if (!localStream) {
     localStream = await navigator.mediaDevices.getUserMedia({
       video: true,
-      audio: true
+      audio: false
     });
     document.getElementById("user-1").srcObject = videoStream;
   }
@@ -225,9 +225,7 @@ let leaveChannel = async () => {
 }
 
 let toggleCamera = async () => {
-  let videoTrack = localStream
-    .getTracks()
-    .find((track) => track.kind === "video");
+  let videoTrack = localStream.getTracks().find((track) => track.kind === "video");
 
   if (videoTrack.enabled) {
     videoTrack.enabled = false;
@@ -235,8 +233,7 @@ let toggleCamera = async () => {
       "rgb(255, 80, 80)";
   } else {
     videoTrack.enabled = true;
-    document.getElementById("camera-btn").style.backgroundColor =
-      "rgb(179, 102, 249, .9)";
+    document.getElementById("camera-btn").style.backgroundColor = "rgb(179, 102, 249, .9)";
   }
 };
 

@@ -240,14 +240,11 @@ let toggleCamera = async () => {
 };
 
 let toggleMic = async () => {
-  let audioTrack = localStream
-    .getTracks()
-    .find((track) => track.kind === "audio");
-
+  let audioTrack = localStream.getTracks().find((track) => track.kind === "audio");
+  console.log(audioTrack)
   if (audioTrack.enabled) {
     audioTrack.enabled = false;
-    document.getElementById("mic-btn").style.backgroundColor =
-      "rgb(255, 80, 80)";
+    document.getElementById("mic-btn").style.backgroundColor ="rgb(255, 80, 80)";
   } else {
     audioTrack.enabled = true;
     document.getElementById("mic-btn").style.backgroundColor =

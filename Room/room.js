@@ -15,10 +15,10 @@ document.getElementById("room_Id").innerText ='Room Id: ' + roomId;
 
 
 if(!roomId){
-  window.location = 'lobby.html'
+  window.location = '../index.html'
 }
 
-
+let remoteName;
 let localStream; // have local camera video and audio streams
 let remoteStream; // have remote camera video and audio streams
 let peerConnection; //store info btwn peer
@@ -60,6 +60,11 @@ var server = {
 };
 
 
+let Name;
+let QuerryString = window.location.search
+let UrlParams = new URLSearchParams(QuerryString)
+Name = (UrlParams.get('input-name'))
+console.log(Name);
 
 
 
@@ -129,6 +134,20 @@ let handleMessageFromPeer = async (message, MemberId) => {
       window.location = 'lobby.html'
     }
   }
+ 
+  if (message.type === 'name') {
+  
+    JSON.stringify(message, (key, value) => {
+      if (key === 'type') {
+        return undefined; // Exclude the 'type' property from the JSON string
+      }
+      remoteName = value.name;
+    });
+    
+
+    console.log('RemoteName:', remoteName );
+    
+  }
 }
 
 // let handleUserJoined = async (MemberId) => { 
@@ -139,6 +158,7 @@ let handleMessageFromPeer = async (message, MemberId) => {
 // };
 let handleUserJoined = async (MemberId) => {
   participantCount++;
+ 
   sendParticipantCount(MemberId);
   if (participantCount >2) {
    
@@ -162,6 +182,22 @@ let sendParticipantCount = async (MemberId) => {
   }
 };
 
+
+let sendName = async (MemberId) => {
+  try {
+    // const message = {
+    //   type: 'name',
+    //   name: Name.toString()
+    // };
+    // await client.sendMessageToPeer({ text: JSON.stringify(message) }, MemberId);
+    client.sendMessageToPeer({text:JSON.stringify({'type':'name','name': Name})},MemberId)
+    console.log('Name sent successfully',);
+  } catch (error) {
+    console.log('Failed to send name:', error);
+  }
+};
+
+
 let createPeerConnection = async (MemberId) =>{
   peerConnection = new RTCPeerConnection(server);
   remoteStream = new MediaStream();
@@ -175,7 +211,7 @@ let createPeerConnection = async (MemberId) =>{
     });
     document.getElementById("user-1").srcObject = videoStream;
   }
-   
+  
   localStream.getTracks().forEach((track) => {
     peerConnection.addTrack(track, localStream);
   });
@@ -191,6 +227,7 @@ let createPeerConnection = async (MemberId) =>{
       client.sendMessageToPeer({text:JSON.stringify({'type':'candidate','candidate':event.candidate})},MemberId) 
     }
   }
+  sendName(MemberId);
 }
 
 
@@ -257,3 +294,6 @@ document.getElementById("mic-btn").addEventListener("click", toggleMic);
 window.addEventListener('beforeunload', leaveChannel)
 
 init();
+
+
+

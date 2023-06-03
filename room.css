@@ -77,17 +77,52 @@
         }
 }
 
-#RemoteName{
-    display: block;
-
+#remote-details {
+    width: 150px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    position: absolute;
+    top: 2vh;
+    left: 50%;
+    background: transparent;
+    box-shadow: 3px 3px 15px -1px rgba(0,0,0,0.77) inset;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-radius: 10px;
     
+  }
+  
+  #remote-details span {
+    box-shadow: 3px 3px 15px -1px rgba(0,0,0,0.77);
+    margin: 2px;
+    width: fit-content;
+    background: transparent;
+    max-width: rem; /* Set a maximum width for the span */
+    height: 1rem;
+    box-sizing: border-box;
+    display: block;
+    /* Hide the overflow content */
+    white-space: nowrap;
+    
+  }
+
+  #RemoteName{
+    display: block;
+    animation: marquee 15s linear infinite;
 }
 
-
-
-
-
-
+  @keyframes marquee {
+    0% {
+      transform: translateX(-100%);  
+    }  
+    100% {
+      transform: translateX(160%);  
+    }  
+  }  
+  
 
 
 

@@ -55,16 +55,24 @@
   align-items: center;
   cursor: pointer;
   /* box-shadow: 3px 3px 15px -1px rgba(0,0,0,0.77); */
+  transition: box-shadow 0.4s, background-color 0.4s;
 }
 
+.control-container:hover{
+    box-shadow: 3px 3px 15px -1px rgba(0,0,0,0.77);
+}
 .control-container img{
+    border-image-slice: fill;
     height: 30px;
-    width: 30px;
+    width: 30px;     
     
 }
 
+
+
 #leave-btn{
     background-color: transparent;
+    transition: box-shadow 0.4s;
 }
 
 @media screen and (max-width:600px) {

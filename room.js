@@ -278,11 +278,13 @@ let toggleCamera = async () => {
   if (videoTrack.enabled) {
     videoTrack.enabled = false;
     document.getElementById('user-1').srcObject = null
+    document.getElementById("camera").src ="icons/mute-camera.png";
     document.getElementById("camera-btn").style.backgroundColor =
-      "rgb(255, 80, 80)";
+    "rgb(255, 80, 80)";
   } else {
     videoTrack.enabled = true;
     document.getElementById('user-1').srcObject = videoStream
+    document.getElementById("camera").src ="icons/camera.png";
     document.getElementById("camera-btn").style.backgroundColor = "transparent";
   }
 };
@@ -293,10 +295,15 @@ let toggleMic = async () => {
   console.log(audioTrack.enabled)
   if (audioTrack.enabled) {
     audioTrack.enabled = false;
+  
+    document.getElementById("mic").src ="icons/mute-mic.png";
     document.getElementById("mic-btn").style.backgroundColor ="rgb(255, 80, 80)";
     console.log(audioTrack.enabled)
+    document.getElementById("mic-btn").style.boxShadow ="3px 3px 15px -1px rgba(0,0,0,0.77) ";
   } else {
     audioTrack.enabled = true;
+    document.getElementById("mic").src ="icons/mic.png";
+    document.getElementById("mic-btn").style.boxShadow ="";
     console.log(audioTrack.enabled)
     document.getElementById("mic-btn").style.backgroundColor =
       "transparent";
@@ -312,6 +319,21 @@ let addRemoteDetails = async() => {
 let removeRemoteDetails = async() => {
  
   document.getElementById("RemoteName").textContent = "";
+}
+
+let videoFrames = document.getElementsByClassName('video-player')
+videoFrames.forEach(Frame => {
+  Frame.addEventListener('click', handleClick);
+});
+function handleClick(event) {
+    if (videoFrames[0] === event.target) {
+      videoFrames[1].classList.add("smallFrame");
+      videoFrames[0].classList.remove("smallFrame");
+    } else {
+      videoFrames[0].classList.add("smallFrame");
+      videoFrames[1].classList.remove("smallFrame");
+    }
+  
 }
 
 

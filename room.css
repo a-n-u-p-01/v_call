@@ -88,6 +88,7 @@
 }
 
 #remote-details {
+    color: white;
     width: 150px;
     padding: 5px;
     display: flex;
@@ -117,6 +118,7 @@
     /* Hide the overflow content */
     white-space: nowrap;
     border-radius: 2px;
+      color: white;
     
   }
 
@@ -124,6 +126,7 @@
     display: block;
     box-shadow: 3px 3px 15px -1px rgba(0,0,0,0.77);
     animation: marquee 8s linear infinite;
+      color: white;
 }
 
   @keyframes marquee {

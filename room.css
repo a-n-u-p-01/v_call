@@ -47,22 +47,24 @@
 
 
 .control-container{
-  background-color: rgb(179, 102, 249, .9);
+  background-color: transparent;
   padding: 20px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  /* box-shadow: 3px 3px 15px -1px rgba(0,0,0,0.77); */
 }
 
 .control-container img{
     height: 30px;
     width: 30px;
+    
 }
 
 #leave-btn{
-    background-color: rgb(255,80,80, 1);
+    background-color: transparent;
 }
 
 @media screen and (max-width:600px) {
@@ -92,7 +94,7 @@
     box-sizing: border-box;
     overflow: hidden;
     border-radius: 10px;
-    
+    border:2px solid #949494;
   }
   
   #remote-details span {
@@ -106,12 +108,14 @@
     display: block;
     /* Hide the overflow content */
     white-space: nowrap;
+    border-radius: 2px;
     
   }
 
   #RemoteName{
     display: block;
-    animation: marquee 15s linear infinite;
+    box-shadow: 3px 3px 15px -1px rgba(0,0,0,0.77);
+    animation: marquee 8s linear infinite;
 }
 
   @keyframes marquee {

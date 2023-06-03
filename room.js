@@ -15,7 +15,7 @@ document.getElementById("room_Id").innerText ='Room Id: ' + roomId;
 
 
 if(!roomId){
-  window.location = '../index.html'
+  window.location = 'index.html'
 }
 
 let remoteName;
@@ -131,7 +131,7 @@ let handleMessageFromPeer = async (message, MemberId) => {
     if(participantCount>2)
     {
       alert("This room is full you can Create and Join Another room");
-      window.location = 'lobby.html'
+      window.location = 'main.html'
     }
   }
  

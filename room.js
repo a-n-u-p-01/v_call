@@ -5,12 +5,13 @@ let uid = String(Math.floor(Math.random() * 100000));
 
 let client;
 let channel;
-
+let audioStream;
 let querryString = window.location.search
 let urlParams = new URLSearchParams(querryString)
 let roomId = urlParams.get('room')
 let participantCount=1;
-document.getElementById("room_Id").innerText ='Room Id: ' + roomId;
+
+
 
 
 
@@ -71,9 +72,11 @@ console.log(Name);
 let init = async () => {
   client = await AgoraRTM.createInstance(APP_ID);
   await client.login({ uid, token });
-
+  
   channel = client.createChannel(roomId);
   await channel.join();
+console.log(roomId);
+document.getElementById("RoomId").textContent = roomId;
   console.log('Number of participant',participantCount);
   channel.on('MemberJoined', handleUserJoined);
   channel.on('MemberLeft', handleUserLeft);
@@ -103,10 +106,11 @@ let handleUserLeft = async (MemberId) => {
   if(participantCount === 1){
     document.getElementById('user-2').style.display = "none";
     document.getElementById('user-1').classList.remove("smallFrame");
+    document.getElementById("RemoteName").style.display = "none";
   }
   console.log('Member just left');
   console.log('Number of participant',participantCount);
-  
+  document.getElementById("RemoteName").style.display = "none"; 
 }
 
 let handleMessageFromPeer = async (message, MemberId) => {
@@ -158,19 +162,19 @@ let handleMessageFromPeer = async (message, MemberId) => {
 // };
 let handleUserJoined = async (MemberId) => {
   participantCount++;
- 
   sendParticipantCount(MemberId);
   if (participantCount >2) {
-   
+    
     console.log('Number of participant',participantCount);
     console.log('Room is full. Cannot accept new participants.');
     return;
   }
-
+  
   console.log('Number of participant',participantCount);
   console.log("A new member has joined", MemberId);
   createOffer(MemberId);
-  
+  addRemoteDetails();
+  document.getElementById("RemoteName").style.display = "flex";
 };
 
 let sendParticipantCount = async (MemberId) => {
@@ -201,6 +205,8 @@ let sendName = async (MemberId) => {
 let createPeerConnection = async (MemberId) =>{
   peerConnection = new RTCPeerConnection(server);
   remoteStream = new MediaStream();
+  console.log('remote :',remoteStream);
+  addRemoteDetails();
   document.getElementById('user-2').srcObject = remoteStream;
   document.getElementById('user-2').style.display='inline';
   document.getElementById('user-1').classList.add("smallFrame");
@@ -215,12 +221,15 @@ let createPeerConnection = async (MemberId) =>{
   localStream.getTracks().forEach((track) => {
     peerConnection.addTrack(track, localStream);
   });
-
+ 
   peerConnection.ontrack = (event) => {
     event.streams[0].getTracks().forEach((track) => {
       remoteStream.addTrack(track);
     });
   };
+  let audioTrack = localStream.getTracks().find((track) => track.kind === "audio");
+  console.log(audioTrack)
+  console.log(audioTrack.enabled)
 
   peerConnection.onicecandidate = async (event) => {
     if (event.candidate) {
@@ -279,17 +288,30 @@ let toggleCamera = async () => {
 let toggleMic = async () => {
   let audioTrack = localStream.getTracks().find((track) => track.kind === "audio");
   console.log(audioTrack)
+  console.log(audioTrack.enabled)
   if (audioTrack.enabled) {
     audioTrack.enabled = false;
     document.getElementById("mic-btn").style.backgroundColor ="rgb(255, 80, 80)";
+    console.log(audioTrack.enabled)
   } else {
     audioTrack.enabled = true;
+    console.log(audioTrack.enabled)
     document.getElementById("mic-btn").style.backgroundColor =
       "rgb(179, 102, 249, .9)";
   }
 };
 document.getElementById("camera-btn").addEventListener("click", toggleCamera);
 document.getElementById("mic-btn").addEventListener("click", toggleMic);
+
+let addRemoteDetails = () => {
+ 
+  document.getElementById("RemoteName").textContent = 'Remote user:'+ remoteName;
+}
+let removeRemoteDetails = () => {
+ 
+  document.getElementById("RemoteName").textContent = "";
+}
+
 
 window.addEventListener('beforeunload', leaveChannel)
 

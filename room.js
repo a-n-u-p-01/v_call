@@ -107,10 +107,12 @@ let handleUserLeft = async (MemberId) => {
     document.getElementById('user-2').style.display = "none";
     document.getElementById('user-1').classList.remove("smallFrame");
     document.getElementById("RemoteName").style.display = "none";
+    removeRemoteDetails();
+    document.getElementById("RemoteName").style.display = "none"; 
   }
+  removeRemoteDetails();
   console.log('Member just left');
   console.log('Number of participant',participantCount);
-  document.getElementById("RemoteName").style.display = "none"; 
 }
 
 let handleMessageFromPeer = async (message, MemberId) => {
@@ -170,10 +172,11 @@ let handleUserJoined = async (MemberId) => {
     return;
   }
   
+  
+  addRemoteDetails();
   console.log('Number of participant',participantCount);
   console.log("A new member has joined", MemberId);
   createOffer(MemberId);
-  addRemoteDetails();
   document.getElementById("RemoteName").style.display = "flex";
 };
 

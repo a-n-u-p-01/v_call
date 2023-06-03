@@ -76,7 +76,7 @@ let init = async () => {
   channel = client.createChannel(roomId);
   await channel.join();
 console.log(roomId);
-document.getElementById("RoomId").textContent = roomId;
+document.getElementById("RoomId").textContent = 'Room id:' + roomId;
   console.log('Number of participant',participantCount);
   channel.on('MemberJoined', handleUserJoined);
   channel.on('MemberLeft', handleUserLeft);
@@ -110,7 +110,6 @@ let handleUserLeft = async (MemberId) => {
     removeRemoteDetails();
     document.getElementById("RemoteName").style.display = "none"; 
   }
-  removeRemoteDetails();
   console.log('Member just left');
   console.log('Number of participant',participantCount);
 }
@@ -166,7 +165,7 @@ let handleUserJoined = async (MemberId) => {
   participantCount++;
   sendParticipantCount(MemberId);
   if (participantCount >2) {
-    
+    addRemoteDetails();
     console.log('Number of participant',participantCount);
     console.log('Room is full. Cannot accept new participants.');
     return;
@@ -306,11 +305,11 @@ let toggleMic = async () => {
 document.getElementById("camera-btn").addEventListener("click", toggleCamera);
 document.getElementById("mic-btn").addEventListener("click", toggleMic);
 
-let addRemoteDetails = () => {
+let addRemoteDetails = async() => {
  
   document.getElementById("RemoteName").textContent = 'Remote user:'+ remoteName;
 }
-let removeRemoteDetails = () => {
+let removeRemoteDetails = async() => {
  
   document.getElementById("RemoteName").textContent = "";
 }

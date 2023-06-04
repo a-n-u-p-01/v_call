@@ -16,7 +16,7 @@ let participantCount=1;
 
 
 if(!roomId){
-  window.location = "main.html?input-pwd=123"
+  window.location = "index.html"
 }
 
 let remoteName;
@@ -163,6 +163,7 @@ let handleMessageFromPeer = async (message, MemberId) => {
 // };
 let handleUserJoined = async (MemberId) => {
   participantCount++;
+  addRemoteDetails();
   sendParticipantCount(MemberId);
   if (participantCount >2) {
     addRemoteDetails();
@@ -208,6 +209,7 @@ let createPeerConnection = async (MemberId) =>{
   peerConnection = new RTCPeerConnection(server);
   remoteStream = new MediaStream();
   console.log('remote :',remoteStream);
+  sendName(MemberId);
   addRemoteDetails();
   document.getElementById('user-2').srcObject = remoteStream;
   document.getElementById('user-2').style.display='inline';
@@ -238,7 +240,7 @@ let createPeerConnection = async (MemberId) =>{
       client.sendMessageToPeer({text:JSON.stringify({'type':'candidate','candidate':event.candidate})},MemberId) 
     }
   }
-  sendName(MemberId);
+  // sendName(MemberId);
 }
 
 

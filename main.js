@@ -1,23 +1,5 @@
-let input_pwd;
-const password = String.fromCharCode(49, 50, 51);
-let querryString = window.location.search
-let urlParams = new URLSearchParams(querryString)
-input_pwd= (urlParams.get('input-pwd'))
-console.log(input_pwd);
 
-console.log(typeof input_pwd);
-
-console.log(typeof password);
-if (input_pwd === password) {
-  console.log(password);
-  }
-    else{
-    window.location="index.html";
-    alert('Enter Correct Password')
-  }
-
-
-  let input_name;
+let input_name;
   
 let form1 = document.getElementById("create-form");
 form1.addEventListener("submit", (e) => {

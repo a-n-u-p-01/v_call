@@ -342,6 +342,3 @@ function handleClick(event) {
 window.addEventListener('beforeunload', leaveChannel)
 
 init();
-
-
-

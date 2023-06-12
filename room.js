@@ -64,8 +64,8 @@ var server = {
 let Name;
 let QuerryString = window.location.search
 let UrlParams = new URLSearchParams(QuerryString)
-Name = (UrlParams.get('input-name'))
-console.log(Name);
+// Name = (UrlParams.get('input-name'))
+// console.log(Name);
 
 
 
@@ -106,9 +106,9 @@ let handleUserLeft = async (MemberId) => {
   if(participantCount === 1){
     document.getElementById('user-2').style.display = "none";
     document.getElementById('user-1').classList.remove("smallFrame");
-    document.getElementById("RemoteName").style.display = "none";
-    removeRemoteDetails();
-    document.getElementById("RemoteName").style.display = "none"; 
+    // document.getElementById("RemoteName").style.display = "none";
+    // removeRemoteDetails();
+    // document.getElementById("RemoteName").style.display = "none"; 
   }
   console.log('Member just left');
   console.log('Number of participant',participantCount);
@@ -136,7 +136,7 @@ let handleMessageFromPeer = async (message, MemberId) => {
     if(participantCount>2)
     {
       alert("This room is full you can Create and Join Another room");
-      window.location ="main.html?input-pwd=123"
+      window.location ="index.html"
     }
   }
  
@@ -163,21 +163,21 @@ let handleMessageFromPeer = async (message, MemberId) => {
 // };
 let handleUserJoined = async (MemberId) => {
   participantCount++;
-  addRemoteDetails();
+  // addRemoteDetails();
   sendParticipantCount(MemberId);
   if (participantCount >2) {
-    addRemoteDetails();
+    // addRemoteDetails();
     console.log('Number of participant',participantCount);
     console.log('Room is full. Cannot accept new participants.');
     return;
   }
   
   
-  addRemoteDetails();
+  // addRemoteDetails();
   console.log('Number of participant',participantCount);
   console.log("A new member has joined", MemberId);
   createOffer(MemberId);
-  document.getElementById("RemoteName").style.display = "flex";
+  // document.getElementById("RemoteName").style.display = "flex";
 };
 
 let sendParticipantCount = async (MemberId) => {
@@ -204,8 +204,8 @@ let createPeerConnection = async (MemberId) =>{
   peerConnection = new RTCPeerConnection(server);
   remoteStream = new MediaStream();
   console.log('remote :',remoteStream);
-  sendName(MemberId);
-  addRemoteDetails();
+  // // sendName(MemberId);
+  // addRemoteDetails();
   document.getElementById('user-2').srcObject = remoteStream;
   document.getElementById('user-2').style.display='inline';
   document.getElementById('user-1').classList.add("smallFrame");

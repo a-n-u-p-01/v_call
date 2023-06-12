@@ -140,19 +140,19 @@ let handleMessageFromPeer = async (message, MemberId) => {
     }
   }
  
-  if (message.type === 'name') {
+  // if (message.type === 'name') {
   
-    JSON.stringify(message, (key, value) => {
-      if (key === 'type') {
-        return undefined; // Exclude the 'type' property from the JSON string
-      }
-      remoteName = value.name;
-    });
+  //   JSON.stringify(message, (key, value) => {
+  //     if (key === 'type') {
+  //       return undefined; // Exclude the 'type' property from the JSON string
+  //     }
+  //     remoteName = value.name;
+  //   });
     
 
-    console.log('RemoteName:', remoteName );
+  //   console.log('RemoteName:', remoteName );
     
-  }
+  // }
 }
 
 // let handleUserJoined = async (MemberId) => { 
@@ -189,20 +189,15 @@ let sendParticipantCount = async (MemberId) => {
   }
 };
 
-
-let sendName = async (MemberId) => {
-  try {
-    // const message = {
-    //   type: 'name',
-    //   name: Name.toString()
-    // };
-    // await client.sendMessageToPeer({ text: JSON.stringify(message) }, MemberId);
-    client.sendMessageToPeer({text:JSON.stringify({'type':'name','name': Name})},MemberId)
-    console.log('Name sent successfully',);
-  } catch (error) {
-    console.log('Failed to send name:', error);
-  }
-};
+// -----------send name-----------
+// let sendName = async (MemberId) => {
+//   try {
+//     client.sendMessageToPeer({text:JSON.stringify({'type':'name','name': Name})},MemberId)
+//     console.log('Name sent successfully',);
+//   } catch (error) {
+//     console.log('Failed to send name:', error);
+//   }
+// };
 
 
 let createPeerConnection = async (MemberId) =>{

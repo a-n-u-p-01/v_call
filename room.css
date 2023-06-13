@@ -122,21 +122,6 @@
     
   }
 
-  #RemoteName{
-    display: block;
-    box-shadow: 3px 3px 15px -1px rgba(0,0,0,0.77);
-    animation: marquee 8s linear infinite;
-      color: white;
-}
-
-  @keyframes marquee {
-    0% {
-      transform: translateX(-100%);  
-    }  
-    100% {
-      transform: translateX(160%);  
-    }  
-  }  
   
 
 

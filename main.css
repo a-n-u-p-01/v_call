@@ -51,6 +51,9 @@ body{
     border: 2px solid gray;
     color: white;
 }
+#join-form input:nth-child(1):focus{
+   outline: none;
+}
 #join-form input:nth-child(2){
     width: 4rem;
     height: 3rem;

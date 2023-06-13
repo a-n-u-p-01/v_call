@@ -8,7 +8,7 @@ form1.addEventListener("submit", (e) => {
   // console.log(input_name);
   let roomId = String(Math.floor(Math.random() * 10000));
   // console.log(input_name)
-  // window.location = `room.html?room=${roomId}&input-name=${input_name}`;
+  window.location = `room.html?room=${roomId}`;
 
 });
 let form2 = document.getElementById("join-form");

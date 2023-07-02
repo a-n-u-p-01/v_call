@@ -76,7 +76,7 @@ let init = async () => {
   channel = client.createChannel(roomId);
   await channel.join();
 console.log(roomId);
-document.getElementById("RoomId").textContent = 'Room id:' + roomId;
+document.getElementById("RoomId").textContent = 'Room id : ' + roomId;
   console.log('Number of participant',participantCount);
   channel.on('MemberJoined', handleUserJoined);
   channel.on('MemberLeft', handleUserLeft);
@@ -333,6 +333,17 @@ function handleClick(event) {
   
 }
 
+// --- copy room id------
+document.getElementById("remote-details").addEventListener("click",() => {
+navigator.clipboard.writeText(roomId).then(() => {
+  console.log('Content copied to clipboard');
+  /* Resolved - text copied to clipboard successfully */
+  alert("Room Id copied successfully");
+},() => {
+  console.error('Failed to copy');
+  /* Rejected - text failed to copy to the clipboard */
+});
+});
 
 window.addEventListener('beforeunload', leaveChannel)
 

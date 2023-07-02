@@ -1,3 +1,36 @@
+/* -------------for screen size mobile----------------------------- */
+
+@media screen and (min-width: 555px) {
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* -----------------For screen size pc--------------- */
+
 *{
     margin: 0;
     padding: 0;
@@ -99,36 +132,36 @@
     top: 2vh;
     left: 50%;
     background: transparent;
-    box-shadow: 3px 3px 15px -1px rgba(0,0,0,0.77) inset;
+    /* box-shadow: 3px 3px 15px -1px rgba(0,0,0,0.77) inset; */
     box-sizing: border-box;
     overflow: hidden;
     border-radius: 10px;
     border:2px solid #949494;
   }
   
-  #remote-details span {
-    box-shadow: 3px 3px 15px -1px rgba(0,0,0,0.77);
+  /* #remote-details span {
+  
     margin: 2px;
     width: fit-content;
     background: transparent;
-    max-width: rem; /* Set a maximum width for the span */
+   
     height: 1rem;
     box-sizing: border-box;
     display: block;
-    /* Hide the overflow content */
+    
     white-space: nowrap;
     border-radius: 2px;
       color: white;
     
-  }
+  } */
 
-  #RemoteName{
+  /* #RemoteName{
     display: block;
     box-shadow: 3px 3px 15px -1px rgba(0,0,0,0.77);
     animation: marquee 8s linear infinite;
       color: white;
-}
-
+} */
+/* 
   @keyframes marquee {
     0% {
       transform: translateX(-100%);  
@@ -138,7 +171,7 @@
     }  
   }  
   
-
+ */
 
 
 

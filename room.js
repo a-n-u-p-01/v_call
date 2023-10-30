@@ -1,4 +1,5 @@
-let APP_ID = "1d4cb1ae18aa4b979771fb8e8751a286";
+require('dotenv').config();
+let APP_ID = process.env.API_KEY;
 let token = null;
 let uid = String(Math.floor(Math.random() * 100000));
 
@@ -22,15 +23,9 @@ if(!roomId){
 let remoteName;
 let localStream; // have local camera video and audio streams
 let remoteStream; // have remote camera video and audio streams
-let peerConnection; //store info btwn peer
+let peerConnection; //store info btwn peers to conect 
 let videoStream;
-// const server = {
-//   iceServers: [
-//     {
-//       urls: ["stun:stun.l.google.com:19302", "stun:stun1.l.google.com:19302"],
-//     },
-//   ],
-// };
+
 
 var server = {
   iceServers: [
@@ -68,15 +63,15 @@ let UrlParams = new URLSearchParams(QuerryString)
 // console.log(Name);
 
 
-
+// This "init" function start everything
 let init = async () => {
   client = await AgoraRTM.createInstance(APP_ID);
   await client.login({ uid, token });
   
   channel = client.createChannel(roomId);
   await channel.join();
-console.log(roomId);
-document.getElementById("RoomId").textContent = 'Room id : ' + roomId;
+  console.log(roomId);
+  document.getElementById("RoomId").textContent = 'Room id : ' + roomId;
   console.log('Number of participant',participantCount);
   channel.on('MemberJoined', handleUserJoined);
   channel.on('MemberLeft', handleUserLeft);

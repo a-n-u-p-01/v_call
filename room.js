@@ -1,5 +1,5 @@
 
-let APP_ID = 
+let APP_ID ="1d4cb1ae18aa4b979771fb8e8751a286";
 let token = null;
 let uid = String(Math.floor(Math.random() * 100000));
 

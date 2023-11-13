@@ -1,5 +1,5 @@
 
-let APP_ID ="1d4cb1ae18aa4b979771fb8e8751a286";
+let APP_ID ="3b8bd3b8a6be4b47a1fc05e75ea94229";
 let token = null;
 let uid = String(Math.floor(Math.random() * 100000));
 

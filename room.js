@@ -1,5 +1,5 @@
-require('dotenv').config();
-let APP_ID = process.env.API_KEY;
+
+let APP_ID = 
 let token = null;
 let uid = String(Math.floor(Math.random() * 100000));
 

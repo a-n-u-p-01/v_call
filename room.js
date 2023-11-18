@@ -1,5 +1,5 @@
-require('dotenv').config();
-let APP_ID = process.env.API_KEY;
+
+let APP_ID ="3b8bd3b8a6be4b47a1fc05e75ea94229";
 let token = null;
 let uid = String(Math.floor(Math.random() * 100000));
 
@@ -79,7 +79,7 @@ let init = async () => {
   client.on('MessageFromPeer', handleMessageFromPeer);
 
   localStream = await navigator.mediaDevices.getUserMedia({
-    video: true,
+    video: false,
     audio: true
   });
 
@@ -206,7 +206,7 @@ let createPeerConnection = async (MemberId) =>{
   document.getElementById('user-1').classList.add("smallFrame");
   if (!localStream) {
     localStream = await navigator.mediaDevices.getUserMedia({
-      video: true,
+      video: false,
       audio: true
     });
     document.getElementById("user-1").srcObject = videoStream;
